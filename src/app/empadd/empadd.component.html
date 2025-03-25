@@ -1,0 +1,135 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg border-0">
+        <div class="card-header bg-primary text-white text-center fw-bold">
+          <h2>Add New Employee</h2>
+        </div>
+        <div class="card-body bg-light bg-gradient p-4">
+          <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+            <!-- Name -->
+            <div class="mb-3">
+              <label for="ename" class="form-label fw-bold text-primary">Name</label>
+              <input
+                type="text"
+                class="form-control form-control-lg border-primary rounded-3"
+                [(ngModel)]="employee.ename"
+                id="ename"
+                name="ename"
+                #ename="ngModel"
+                pattern="^[a-zA-Z\s]{1,15}$"
+                required
+                placeholder="Enter Employee Name"
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label fw-bold text-primary">Email</label>
+              <input
+                type="email"
+                class="form-control form-control-lg border-primary rounded-3"
+                [(ngModel)]="employee.email"
+                id="email"
+                name="email"
+                #email="ngModel"
+                required
+                placeholder="Enter Employee Email"
+              />
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+              <label for="password" class="form-label fw-bold text-primary">Password</label>
+              <input
+                type="password"
+                class="form-control form-control-lg border-primary rounded-3"
+                [(ngModel)]="employee.password"
+                id="password"
+                name="password"
+                #password="ngModel"
+                required
+                placeholder="Enter Password"
+              />
+            </div>
+
+            <!-- Gender -->
+            <fieldset class="row mb-3">
+              <legend class="col-form-label fw-bold text-primary">Gender</legend>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    id="male"
+                    [(ngModel)]="employee.gender"
+                    value="Male"
+                    checked
+                  />
+                  <label class="form-check-label" for="male"> Male </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    id="female"
+                    [(ngModel)]="employee.gender"
+                    value="Female"
+                  />
+                  <label class="form-check-label" for="female"> Female </label>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Marital Status -->
+            <fieldset class="row mb-3">
+              <legend class="col-form-label fw-bold text-primary">Marital Status</legend>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="isMarried"
+                    id="single"
+                    [(ngModel)]="employee.isMarried"
+                    value="false"
+                    checked
+                  />
+                  <label class="form-check-label" for="single"> Single </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="isMarried"
+                    id="married"
+                    [(ngModel)]="employee.isMarried"
+                    value="true"
+                  />
+                  <label class="form-check-label" for="married"> Married </label>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Buttons -->
+            <div class="text-center mt-4">
+              <button
+                (click)="addEmployee()"
+                [disabled]="!myForm.form.valid"
+                type="submit"
+                class="btn btn-success btn-lg px-4"
+              >
+                Submit
+              </button>
+              <button type="reset" class="btn btn-outline-danger btn-lg ms-3 px-4">
+                Reset
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

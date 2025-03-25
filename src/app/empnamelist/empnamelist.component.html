@@ -1,0 +1,17 @@
+
+
+
+
+<table class="table table-hover table-bordered table-striped text-center shadow-lg rounded bg-light" 
+       style="max-width: 40%; margin: 20px auto; border-radius: 10px; overflow: hidden;">
+  <thead class="bg-success text-white">
+    <tr>
+      <th class="p-3">Employee Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employees" class="table-warning fw-bold">
+      <td class="p-2 text-primary">{{ emp.ename }}</td>
+    </tr>
+  </tbody>
+</table>
